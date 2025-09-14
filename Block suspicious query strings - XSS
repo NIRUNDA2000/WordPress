@@ -1,0 +1,5 @@
+#Apache - .htaccess
+
+RewriteCond %{QUERY_STRING} (^|&)status=.* [NC,OR]
+RewriteCond %{QUERY_STRING} (^|&)reload=.* [NC]
+RewriteRule ^ - [F,L]
