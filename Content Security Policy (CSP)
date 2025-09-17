@@ -1,3 +1,5 @@
-Block vulnerable features (temporary mitigation)
+# Block vulnerable features (temporary mitigation)
 Header set Content-Security-Policy "default-src 'self'; script-src 'self';"
 
+# Enforce Content Security Policy (adjust if something breaks)
+Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://srilankaprestige.com; style-src 'self' 'unsafe-inline' https://srilankaprestige.com; img-src 'self' data: https://srilankaprestige.com"
