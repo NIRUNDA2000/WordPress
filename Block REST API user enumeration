@@ -1,0 +1,14 @@
+# Block REST API user enumeration
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{QUERY_STRING} ^rest_route=/wp/v2/users [NC]
+RewriteRule .* - [F,L]
+</IfModule>
+
+# Also block direct wp-json user enumeration
+<FilesMatch "wp-json">
+    <IfModule mod_rewrite.c>
+        RewriteCond %{THE_REQUEST} \s/wp-json/wp/v2/users [NC]
+        RewriteRule .* - [F,L]
+    </IfModule>
+</FilesMatch>
