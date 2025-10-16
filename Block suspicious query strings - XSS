@@ -3,3 +3,9 @@
 RewriteCond %{QUERY_STRING} (^|&)status=.* [NC,OR]
 RewriteCond %{QUERY_STRING} (^|&)reload=.* [NC]
 RewriteRule ^ - [F,L]
+
+
+# Reject querystrings with characters commonly used for XSS (403 Forbidden Error)
+RewriteEngine On
+RewriteCond %{QUERY_STRING} (?:<|>|%3C|%3E|\"|%27) [NC]
+RewriteRule ^ - [F,L]
